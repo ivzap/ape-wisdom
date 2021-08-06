@@ -63,6 +63,10 @@ def get_ape_wisdom_diff(wisdoms) -> pd.DataFrame():
 	result.sort_values('rank', inplace=True)
 	return result
 
+#def write_to_file()
+	# do things....
+
+
 
 # Querrys two wisdoms for comparison seperated by X minutes
 def query(minutes, subreddit, pages) -> pd.DataFrame():
