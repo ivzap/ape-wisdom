@@ -10,4 +10,4 @@ import requests
 requests.get(pagination_url)
 ```
 ### Documentation:
-> ape
+> Click https://apewisdom.io/api/ to view ape-wisdom's simple api documentation
