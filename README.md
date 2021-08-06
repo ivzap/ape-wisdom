@@ -11,3 +11,9 @@ requests.get(pagination_url)
 ```
 ### Documentation:
 > Click https://apewisdom.io/api/ to view ape-wisdom's simple api documentation
+
+### Cron Job:
+```
+*/15 * * * * (cd project_location && interpreter_location project_name.py) >> /project_path/cron_logs/cron.log 2>&1
+
+```
