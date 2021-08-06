@@ -1,6 +1,6 @@
 # ape-wisdom
 
-###Usage:
+### Usage:
 
 -Description: ape-wisdom uses pagination so we use the requests library to 'request' the data
 ```python
