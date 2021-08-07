@@ -2,6 +2,7 @@ import datetime as dt
 import pandas as pd
 import requests
 
+
 #Description: Gets number of pages in pagination
 def get_ape_wisdom_pages(subreddit) -> int:
 	url = 'https://apewisdom.io/api/v1.0/filter/' + subreddit + '/'
@@ -53,6 +54,12 @@ def get_ape_wisdom_changes(wisdoms, sort_by) -> pd.DataFrame():
 	return data
 
 
+# Description: writes wisdom to a database
+def write_wisdom(wisdom, path: str):
+	current_day = str(datetime.datetime.now().date())
+	wisdom.to_csv(path + 'ape_wisdom_' + current_day + '.csv', index=False, mode='a')
+
+
 # Description: Gets only the stocks that have changed rank since the last data request(USE: RESEARCH)
 def get_ape_wisdom_diff(wisdoms) -> pd.DataFrame():
 	first_req = wisdoms[0]
@@ -62,10 +69,6 @@ def get_ape_wisdom_diff(wisdoms) -> pd.DataFrame():
 	result.reset_index(drop=True, inplace=True)
 	result.sort_values('rank', inplace=True)
 	return result
-
-#def write_to_file()
-	# do things....
-
 
 
 # Querrys two wisdoms for comparison seperated by X minutes
