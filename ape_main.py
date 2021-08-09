@@ -1,6 +1,7 @@
 import datetime as dt 
 import pandas as pd
 import requests
+import os
 
 
 #Description: Gets number of pages in pagination
