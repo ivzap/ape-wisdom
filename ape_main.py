@@ -23,12 +23,13 @@ def get_ape_wisdom(subreddit: str, pages: int) -> pd.DataFrame:
 	    # concat to data
 	    wisdom = pd.concat([tempData, wisdom])
 	wisdom = wisdom.fillna(0)
+	wisdom = wisdom.drop_duplicates('ticker', keep='first')
 	wisdom = wisdom.sort_values(by='rank')
 	wisdom = wisdom.reset_index(drop=True)
 	return wisdom
 
 
-# Description: writes wisdom to days csv
+# Description: writes wisdom to current day csv
 def wisdom_to_csv(wisdom: pd.DataFrame, write_dateDT: dt.datetime):
 	cwd = os.getcwd()
 	# Check if we need to write a header to our csv when appending/writing
