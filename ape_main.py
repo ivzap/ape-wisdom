@@ -45,6 +45,7 @@ def wisdom_to_csv(wisdom: pd.DataFrame, write_dateDT: dt.datetime):
 
 	
 if __name__ == "__main__":
+	# get subreddit and pages
 	subreddit = 'wallstreetbets'
 	pages = get_ape_wisdom_pages(subreddit)
 	
