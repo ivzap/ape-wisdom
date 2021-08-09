@@ -12,22 +12,25 @@ def get_ape_wisdom_pages(subreddit: str) -> int:
 
 
 #Description: Gets the data from pagination
-def get_ape_wisdom(subreddit: str, pages: int) -> pd.DataFrame:
-	current = str(dt.datetime.now())
-	wisdom = pd.DataFrame()
-	for page in pages:  
-	    url = 'https://apewisdom.io/api/v1.0/filter/' + subreddit + '/page/' + str(page)
-	    # request data
-	    pagination_data = requests.get(url).json()
-	    tempData = pd.DataFrame(pagination_data['results'])
-	    tempData['timestamp'] = current
-	    # concat to data
-	    wisdom = pd.concat([tempData, wisdom])
-	wisdom = wisdom.fillna(0)
-	wisdom = wisdom.drop_duplicates('ticker', keep='first')
-	wisdom = wisdom.sort_values(by='rank')
-	wisdom = wisdom.reset_index(drop=True)
-	return wisdom
+def get_ape_wisdom(subreddit, pages):
+    current = dt.datetime.strftime(dt.datetime.now(), format='%Y-%m-%d %H:%M:%S')
+    currentDT = dt.datetime.strptime(current,'%Y-%m-%d %H:%M:%S')
+    wisdom = pd.DataFrame()
+    for page in pages:  
+        url = 'https://apewisdom.io/api/v1.0/filter/' + subreddit + '/page/' + str(page)
+        # request data
+        pagination_data = requests.get(url).json()
+        tempData = pd.DataFrame(pagination_data['results'])
+        tempData['timestamp'] = current
+        #tempData['mentions_change'] = 0
+        #tempData['upvotes_change'] = 0
+        # concat to data
+        wisdom = pd.concat([tempData, wisdom])
+    wisdom = wisdom.drop_duplicates('ticker', keep='first')
+    wisdom = wisdom.sort_values(by='rank')
+    wisdom = wisdom.reset_index(drop=True)
+
+    return wisdom, currentDT
 
 
 # Description: writes wisdom to current day csv
