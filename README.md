@@ -2,7 +2,7 @@
 
 ### Usage:
 
-> note: ape-wisdom uses **pagination** so we use the requests library to 'request' the data
+> note: ape wisdoms api uses **pagination** so we use the requests library to 'request' the data
 ```python
 # set subreddit to be searched and get pages
 subreddit = 'wallstreetbets'
