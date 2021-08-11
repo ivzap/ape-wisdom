@@ -17,9 +17,8 @@ def get_ape_wisdom(subreddit, pages):
     currentDT = dt.datetime.strptime(current,'%Y-%m-%d %H:%M:%S')
     wisdom = pd.DataFrame()
     for page in pages:
-
         url = 'https://apewisdom.io/api/v1.0/filter/' + subreddit + '/page/' + str(page)
-
+        
         # request data
         pagination_data = requests.get(url).json()
         tempData = pd.DataFrame(pagination_data['results'])
