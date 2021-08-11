@@ -20,6 +20,6 @@ wisdom_to_csv(new_wisdom, write_dateDT)
 
 ### Cron Job:
 ```
-*/15 * * * * (cd project_location && interpreter_location project_name.py) >> /project_path/cron_logs/cron.log 2>&1
+*/15 * * * * /home/interns/miniconda3/bin/python3 /home/interns/ape_wisdom/ape-wisdom/ape_main.py >> ~/cron.log 2>&1
 
 ```
