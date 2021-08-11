@@ -37,7 +37,6 @@ def get_ape_wisdom(subreddit, pages):
 
 # Description: writes wisdom to current day csv
 def wisdom_to_csv(wisdom, write_dateDT):
-    #path = '/home/interns/ape_wisdom/ape-wisdom/wisdom/'
     path = '/mnt/ape_wisdom_windows_smount/'
     # Check if we need to write a header to our csv when appending/writing
     try:
