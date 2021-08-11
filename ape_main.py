@@ -24,8 +24,7 @@ def get_ape_wisdom(subreddit, pages):
         pagination_data = requests.get(url).json()
         tempData = pd.DataFrame(pagination_data['results'])
         tempData['timestamp'] = current
-        #tempData['mentions_change'] = 0
-        #tempData['upvotes_change'] = 0
+        
         # concat to data
         wisdom = pd.concat([tempData, wisdom])
     wisdom = wisdom.drop_duplicates('ticker', keep='first')
