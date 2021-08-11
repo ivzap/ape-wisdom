@@ -36,18 +36,16 @@ def get_ape_wisdom(subreddit, pages):
 
 
 # Description: writes wisdom to current day csv
-def wisdom_to_csv(wisdom, write_dateDT):
-    share_mnt_path = '/mnt/ape_wisdom_windows_smount/'
+def wisdom_to_csv(wisdom, write_dateDT, dirpath):
     file_name = 'ape_wisdom_' + str(write_dateDT.date()) + '.csv'
+    
     # Check if we need to write a header to our csv when appending/writing
-    try:
+    if os.path.isfile(os.path.join(dirpath, file_name))
         # means read was succesful and we already listed the headers in the csv
-        with open(share_mnt_path + file_name, mode='r') as f:
-            pass
-        wisdom.to_csv(share_mnt_path + file_name, mode='a', index=False, header=False)
-    except:
+        wisdom.to_csv(os.path.join(share_mnt_path, file_name), mode='a', index=False, header=False)
+    else:
         # means file not found and this is the first write so header is needed
-        wisdom.to_csv(share_mnt_path + file_name, mode='w', index=False)
+        wisdom.to_csv(os.path.join(share_mnt_path, file_name), mode='w', index=False)
 
 
 if __name__ == "__main__":
@@ -60,4 +58,5 @@ if __name__ == "__main__":
     new_wisdom = new_wisdom[['timestamp','ticker', 'name', 'rank', 'mentions','upvotes','rank_24h_ago', 'mentions_24h_ago']]
     
     # append/write new wisdom to csv
-    wisdom_to_csv(new_wisdom, write_dateDT)                                             
+    dirpath = 'somepath'
+    wisdom_to_csv(new_wisdom, write_dateDT, dirpath)                                             
