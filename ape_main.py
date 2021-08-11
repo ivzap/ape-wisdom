@@ -38,13 +38,13 @@ def wisdom_to_csv(wisdom: pd.DataFrame, write_dateDT: dt.datetime):
 	cwd = os.getcwd()
 	# Check if we need to write a header to our csv when appending/writing
 	try:
-	# means read was succesful and we already listed the headers in the csv
-	with open(cwd + '/wisdom/' + 'ape_wisdom_' + str(write_dateDT.date()) + '.csv', mode='r') as f:
-	    pass
-	wisdom.to_csv(cwd + '/wisdom/' +  'ape_wisdom_' + str(write_dateDT.date()) + '.csv', mode='a', index=False, header=False)
+		# means read was succesful and we already listed the headers in the csv
+		with open(cwd + '/wisdom/' + 'ape_wisdom_' + str(write_dateDT.date()) + '.csv', mode='r') as f:
+		    pass
+		wisdom.to_csv(cwd + '/wisdom/' +  'ape_wisdom_' + str(write_dateDT.date()) + '.csv', mode='a', index=False, header=False)
 	except:
-	# means file not found and this is the first write so header is needed
-	wisdom.to_csv('ape_wisdom_' + str(write_dateDT.date()) + '.csv', mode='w', index=False)
+		# means file not found and this is the first write so header is needed
+		wisdom.to_csv('ape_wisdom_' + str(write_dateDT.date()) + '.csv', mode='w', index=False)
 
 	
 if __name__ == "__main__":
