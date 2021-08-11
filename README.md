@@ -13,7 +13,9 @@ new_wisdom, write_dateDT = get_ape_wisdom(subreddit, pages)
 new_wisdom = new_wisdom[['timestamp','ticker', 'name', 'rank', 'mentions','upvotes','rank_24h_ago', 'mentions_24h_ago']]
 
 # append/write new wisdom to csv
-wisdom_to_csv(new_wisdom, write_dateDT)
+dirpath = 'somedirpath'
+wisdom_to_csv(new_wisdom, write_dateDT, dirpath)
+
 ```
 ### Documentation:
 > Click https://apewisdom.io/api/ to view ape-wisdom's simple api documentation
