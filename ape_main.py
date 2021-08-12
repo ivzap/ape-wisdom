@@ -51,7 +51,7 @@ def wisdom_to_csv(wisdom, write_dateDT, dirpath):
 if __name__ == "__main__":
     # create argparser object to pass args via cmd line
     parser = argparse.ArgumentParser(description='Process some integers.')
-    parser.add_argument('dirpath', metavar='dirpath', type=str, help='a dir path that contains ape wisdom csvs ')
+    parser.add_argument('dirpath', metavar='dirpath', type=str, help='a dir path that contains ape wisdom csvs')
     args = parser.parse_args()
     
     # get subreddit and pages  
