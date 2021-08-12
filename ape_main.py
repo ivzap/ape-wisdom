@@ -63,5 +63,4 @@ if __name__ == "__main__":
     new_wisdom = new_wisdom[['timestamp','ticker', 'name', 'rank', 'mentions','upvotes','rank_24h_ago', 'mentions_24h_ago']]
     
     # append/write new wisdom to csv
-    dirpath = args.dirpath
-    wisdom_to_csv(new_wisdom, write_dateDT, dirpath)                                             
+    wisdom_to_csv(new_wisdom, write_dateDT, args.dirpath)                                             
