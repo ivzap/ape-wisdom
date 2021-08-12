@@ -2,7 +2,7 @@ import datetime as dt
 import pandas as pd
 import requests
 import os
-import arparse
+import argparse
 
 
 
@@ -40,12 +40,12 @@ def wisdom_to_csv(wisdom, write_dateDT, dirpath):
     file_name = 'ape_wisdom_' + str(write_dateDT.date()) + '.csv'
     
     # Check if we need to write a header to our csv when appending/writing
-    if os.path.isfile(os.path.join(dirpath, file_name))
+    if os.path.isfile(os.path.join(dirpath, file_name)):
         # means read was succesful and we already listed the headers in the csv
-        wisdom.to_csv(os.path.join(share_mnt_path, file_name), mode='a', index=False, header=False)
+        wisdom.to_csv(os.path.join(dirpath, file_name), mode='a', index=False, header=False)
     else:
         # means file not found and this is the first write so header is needed
-        wisdom.to_csv(os.path.join(share_mnt_path, file_name), mode='w', index=False)
+        wisdom.to_csv(os.path.join(dirpath, file_name), mode='w', index=False)
 
 
 if __name__ == "__main__":
