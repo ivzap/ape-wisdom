@@ -2,6 +2,7 @@
 ![image](https://user-images.githubusercontent.com/64557487/135900885-7b48c43d-bac5-42fb-8a54-3c97bbad6856.png)
 
 
+-----------------------------
 
 > Parameters
 
@@ -13,7 +14,7 @@
 ```python
 def get_ape_wisdom_pages(subreddit)
 ```
-
+-----------------------------
 > Parameters
 > 
 | Name   |     Type      | Description  |
@@ -24,6 +25,7 @@ def get_ape_wisdom_pages(subreddit)
 ```python
 def get_ape_wisdom(subreddit, pages)
 ```
+-----------------------------
 
 
 
@@ -38,6 +40,7 @@ def get_ape_wisdom(subreddit, pages)
 ```python
 def wisdom_to_csv(wisdom, write_dateDT, dirpath)
 ```
+-----------------------------
 
 ### Usage Example:
 
