@@ -1,6 +1,5 @@
-# ape-wisdom
-
-### Usage:
+# Ape Wisdom API Wrapper
+![image](https://user-images.githubusercontent.com/64557487/135900885-7b48c43d-bac5-42fb-8a54-3c97bbad6856.png)
 
 > note: ape wisdoms api uses **pagination** so we use the requests library to 'request' the data
 ```python
